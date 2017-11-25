@@ -23,56 +23,24 @@
 - email:
  
   - xjjppm@foxmail.com
- 
   - 982200703@qq.com
- 
   - xjjppm@vip.qq.com
- 
   - lzkovo@outlook.com
  
- ### Some Links
+### Some Links
  
- - OnlineJudge
+- OnlineJudge
  
-   
-   -  [bzoj](http://www.lydsy.com/JudgeOnline/problemset.php/)
- 
-   
-   -  [Luogu](http://www.luogu.org/)
- 
-   
-   -  [uoj](http://uoj.ac/)
-  
-   
-   -  [loj](http://loj.ac/)
-  
+ - [bzoj](http://www.lydsy.com/JudgeOnline/problemset.php/) 
+ - [Luogu](http://www.luogu.org/)
+ - [uoj](http://uoj.ac/)
+ - [loj](http://loj.ac/)
+ - [Codeforces](http://codeforces.com/)
+ - [Vjudge](http://vjudge.net/)
 
-   -  [bzoj](http://www.lydsy.com/JudgeOnline/problemset.php/)
+- Other
  
-   
-   -  [Luogu](http://www.luogu.org/)
- 
-   
-   -  [uoj](http://uoj.ac/)
-  
-   
-   -  [loj](http://loj.ac/)
-   -  [Codeforces](http://codeforces.com/)
-  
-   
-   -  [Vjudge](http://vjudge.net/)
- 
- 
- - Other
- 
-   
-   -  [PDF tools](https://pdfcandy.com/)
-  
-   
-   -  [SM.MS](http://sm.ms) (A free picture hosting website)
-  
-   
-   -  [Google translate](https://translate.google.cn/)
-  
-  
-   -  [MakeGirls](http://make.girls.moe/#/)
+ - [PDF tools](https://pdfcandy.com/)
+ - [SM.MS](http://sm.ms) (A free picture hosting website)
+ - [Google translate](https://translate.google.cn/)
+ - [MakeGirls](http://make.girls.moe/#/)
