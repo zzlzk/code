@@ -34,24 +34,34 @@
  
  - OnlineJudge
  
+   
    -  [bzoj](http://www.lydsy.com/JudgeOnline/problemset.php/)
  
+   
    -  [Luogu](http://www.luogu.org/)
  
+   
    -  [uoj](http://uoj.ac/)
   
+   
    -  [loj](http://loj.ac/)
   
-   -  [Codeforces](http://codeforces.com/)
+   
+   -  [Codeforces](http://codeforces.com/)
   
+   
    -  [Vjudge](http://vjudge.net/)
  
  - Other
  
+   
    -  [PDF tools](https://pdfcandy.com/)
   
-   -  [SM.MS](http://sm.ms) (A free picture hosting website)
+   
+   -  [SM.MS](http://sm.ms) (A free picture hosting website)
   
-   -  [Google translate](https://translate.google.cn/)
+   
+   -  [Google translate](https://translate.google.cn/)
+  
   
    -  [MakeGirls](http://make.girls.moe/#/)
