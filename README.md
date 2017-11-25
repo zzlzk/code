@@ -14,7 +14,7 @@
 - [Cnblog](http://www.cnblogs.com/NuclearSubmarines/) ~~已经被我当成图床和网盘了~~ 
 - [GitHub Pages](https://zzlzk.github.io/)
 
-###Contact me
+### Contact me
  
 - QQ: `982200703`
 
@@ -22,36 +22,36 @@
  
 - email:
  
- - xjjppm@foxmail.com
+  - xjjppm@foxmail.com
  
- - 982200703@qq.com
+  - 982200703@qq.com
  
- - xjjppm@vip.qq.com
+  - xjjppm@vip.qq.com
  
- - lzkovo@outlook.com
+  - lzkovo@outlook.com
  
- ###Some Links
+ ### Some Links
  
  - OnlineJudge
  
-  - [bzoj](http://www.lydsy.com/JudgeOnline/problemset.php/)
+   -  [bzoj](http://www.lydsy.com/JudgeOnline/problemset.php/)
  
-  - [Luogu](http://www.luogu.org/)
+   -  [Luogu](http://www.luogu.org/)
  
-  - [uoj](http://uoj.ac/)
+   -  [uoj](http://uoj.ac/)
   
-  - [loj](http://loj.ac/)
+   -  [loj](http://loj.ac/)
   
-  - [Codeforces](http://codeforces.com/)
+   -  [Codeforces](http://codeforces.com/)
   
-  - [Vjudge](http://vjudge.net/)
+   -  [Vjudge](http://vjudge.net/)
  
  - Other
  
-  - [PDF tools](https://pdfcandy.com/)
+   -  [PDF tools](https://pdfcandy.com/)
   
-  - [SM.MS](http://sm.ms) (A free picture hosting website)
+   -  [SM.MS](http://sm.ms) (A free picture hosting website)
   
-  - [Google translate](https://translate.google.cn/)
+   -  [Google translate](https://translate.google.cn/)
   
-  - [MakeGirls](http://make.girls.moe/#/)
+   -  [MakeGirls](http://make.girls.moe/#/)
