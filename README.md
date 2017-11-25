@@ -46,7 +46,17 @@
    
    -  [loj](http://loj.ac/)
   
-   
+
+   -  [bzoj](http://www.lydsy.com/JudgeOnline/problemset.php/)
+ 
+   
+   -  [Luogu](http://www.luogu.org/)
+ 
+   
+   -  [uoj](http://uoj.ac/)
+  
+   
+   -  [loj](http://loj.ac/)
    -  [Codeforces](http://codeforces.com/)
   
    
