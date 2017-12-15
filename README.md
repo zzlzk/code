@@ -1,20 +1,12 @@
-## SDOI 2018 Bless All.
-
-
 ### About me
 - An OIer from SD.
-- NOIP不拿一等奖不玩游戏 ~~拿了也不玩~~
-- 压线一等真刺激
+- SDOI2018不进队不玩游戏 ~~进了也不玩~~
 
 ![qwq](http://images.cnblogs.com/cnblogs_com/NuclearSubmarines/1013327/o_QWQ.gif)
 
-- 正十七边形护体
-
-![qwq](http://images.cnblogs.com/cnblogs_com/NuclearSubmarines/1098093/o_17.png)
-
 ### My Blogs
+不准备写很多题解类的文章了。就胡乱写一下自己的一些想法。
 - [CSDN](http://blog.csdn.net/nuclearsubmarines/)
-- [Cnblog](http://www.cnblogs.com/NuclearSubmarines/) ~~已经被我当成图床和网盘了~~ 
 - [GitHub Pages](https://zzlzk.github.io/)
 
 ### Contact me
@@ -29,18 +21,3 @@
   - 982200703@qq.com
   - xjjppm@vip.qq.com
   - lzkovo@outlook.com
- 
-### Some Links
- 
-- OnlineJudge
-  - [bzoj](http://www.lydsy.com/JudgeOnline/problemset.php/) 
-  - [Luogu](http://www.luogu.org/)
-  - [uoj](http://uoj.ac/)
-  - [loj](http://loj.ac/)
-  - [Codeforces](http://codeforces.com/)
-  - [Vjudge](http://vjudge.net/)
-- Other
-  - [PDF tools](https://pdfcandy.com/)
-  - [SM.MS](http://sm.ms) (A free picture hosting website)
-  - [Google translate](https://translate.google.cn/)
-  - [MakeGirls](http://make.girls.moe/#/)
