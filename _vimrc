@@ -10,6 +10,8 @@ syntax on
 set guifont=Courier_new:h14:b:cDEFAULT
 set autoindent
 set smartindent
+set go-=T
+set go-=m
 
 imap <c-]> {<cr>}<c-o>O<left><right>
 inoremap ( ()<LEFT>
