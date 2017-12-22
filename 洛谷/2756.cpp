@@ -3,87 +3,110 @@
 #include<cstring>
 #include<algorithm>
 using namespace std;
-typedef queue<int> Queue;
-#define maxn 110
-#define inf 0x7fffffff
+typedef long long ll;
+
+template<typename T>
+void input(T &x) {
+    x=0; T a=1;
+    register char c=getchar();
+    for(;c<48||c>57;c=getchar())
+        if(c==45) a=-1;
+    for(;c>=48&&c<=57;c=getchar())
+        x=x*10+c-48;
+    x*=a;
+    return;
+}
+
+#define MAXN 10010
+#define MAXM 100010
+
 struct Edge {
-	int u,v,cap,next;
-	Edge(int u=0,int v=0,int cap=0,int next=0):
-		u(u),v(v),cap(cap),next(next) {}
-}edge[maxn*maxn];
-int head[maxn],agt[maxn];
-int cnt=1,S,T;
-inline int input() {
-	int x=0,a=1;char c=getchar();
-	for(;c<'0'||c>'9';c=getchar())
-		if(c=='-') a=-1;
-	for(;c>='0'&&c<='9';c=getchar())
-		x=x*10+c-'0';
-	return x*a;
+    int u,v,cap,next;
+    Edge(int u=0,int v=0,int cap=0,int next=0):
+        u(u),v(v),cap(cap),next(next) {}
+};
+
+Edge edge[MAXM<<1];
+int head[MAXN],cnt=1;
+
+void addedge(int u,int v,int cap) {
+    edge[++cnt]=Edge(u,v,cap,head[u]);
+    head[u]=cnt;
+    return;
 }
-inline void addedge(int u,int v,int cap) {
-	edge[++cnt]=Edge(u,v,cap,head[u]);
-	head[u]=cnt;
-	edge[++cnt]=Edge(v,u,0,head[v]);
-	head[v]=cnt;
-	return;
-} 
-inline void clear() {
-	memset(agt,0,sizeof(agt));
-	return;
+
+queue<int> q;
+int lev[MAXN],cur[MAXN];
+int n,m,src,decc;
+
+bool bfs() {
+    for(int i=1;i<=n+2;i++) lev[i]=-1;
+    while(!q.empty()) q.pop();
+    q.push(src),lev[src]=0;
+    while(!q.empty()) {
+        int u=q.front();
+        q.pop();
+        for(int i=head[u],v;i;i=edge[i].next) {
+            v=edge[i].v;
+            if(edge[i].cap>0&&lev[v]==-1) {
+                q.push(v);
+                lev[v]=lev[u]+1;
+                if(v==decc) return true;
+            }
+        }
+    }
+    return false;
 }
-inline bool bfs() {
-	clear();
-	Queue q;
-	q.push(S);
-	agt[S]=1;
-	while(!q.empty()) {
-		int u=q.front();
-		q.pop();
-		for(int i=head[u];i;i=edge[i].next)
-			if(!agt[edge[i].v]&&edge[i].cap) {
-				agt[edge[i].v]=agt[u]+1;
-				q.push(edge[i].v);
-			}
-	}
-	return agt[T];
+
+int dfs(int u,int flow) {
+    if(u==decc) return flow;
+    int x,used=0;
+    for(int &i=cur[u];i;i=edge[i].next) {
+        int v=edge[i].v;
+        if(edge[i].cap>0&&lev[v]==lev[u]+1) {
+            x=dfs(v,min(edge[i].cap,flow-used)),
+            used+=x,edge[i].cap-=x,edge[i^1].cap+=x;
+            if(used==flow) break;
+        }
+    }
+    if(x!=used) lev[u]=-1;
+    return used;
 }
-int dfs(int x,int maxflow) {
-	if(x==T||!maxflow) return maxflow;
-	int used=0;
-	for(int i=head[x];i;i=edge[i].next)
-		if(edge[i].cap&&agt[edge[i].v]==agt[x]+1) {
-			int flow=dfs(edge[i].v,min(edge[i].cap,maxflow));
-			used+=flow;
-			maxflow-=flow;
-			edge[i].cap-=flow;
-			edge[i^1].cap+=flow;
-		}
-	return used;
+
+#define inf 2147483647
+
+int dinic(void) {
+    int ans=0;
+    while(bfs()) {
+        for(int i=1;i<=n+2;i++)
+            cur[i]=head[i];
+        ans+=dfs(src,inf);
+    }
+    return ans;
 }
-int dinic() {
-	int ans=0;
-	while(bfs()) ans+=dfs(S,inf);
-	return ans;
-}
+
 int main() {
-	int m=input(),n=input(),a,b;
-	while(scanf("%d%d",&a,&b))
-		if(a==-1&&b==-1) break;
-		else addedge(a,b,inf);
-	S=0,T=n+1;
-	for(int i=1;i<=m;i++) addedge(0,i,1);
-	for(int i=m+1;i<=n;i++) addedge(i,T,1);
-	a=dinic();
-	if(!a) {
-		printf("No Solution!\n");
-		return 0;
-	} else printf("%d\n",a);
-	for(int i=2;i<=cnt;i+=2) {
-		if(edge[i].u==S||edge[i].v==S) continue;
-		if(edge[i].u==T||edge[i].v==T) continue;
-		if(edge[i^1].cap==0) continue;
-		printf("%d %d\n",edge[i].u,edge[i].v);
-	}
-	return 0;
+    input(m),input(n);
+    src=n+1,decc=n+2;
+    for(int i,j;true;) {
+        input(i),input(j);
+        if(i==-1&&j==-1) break;
+        addedge(i,j,1),addedge(j,i,0);
+    }
+    for(int i=1;i<=m;i++)
+        addedge(src,i,1),addedge(i,src,0);
+    for(int i=m+1;i<=n;i++)
+        addedge(i,decc,1),addedge(decc,i,0);
+    int ans=dinic();
+    if(!ans) puts("No Solution!");
+    else {
+        printf("%d\n",ans);
+        for(int i=2;i<=cnt;i+=2) {
+            if(edge[i].u==src||edge[i].v==src) continue;
+            if(edge[i].u==decc||edge[i].v==decc) continue;
+            if(edge[i^1].cap==0) continue;
+            printf("%d %d\n",edge[i].u,edge[i].v);
+        }
+    }
+    return 0;
 }

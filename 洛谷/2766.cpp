@@ -6,7 +6,7 @@ using namespace std;
 typedef long long ll;
 
 template<typename T>
-bool input(T &x) {
+void input(T &x) {
     x=0; T a=1;
     register char c=getchar();
     for(;c<48||c>57;c=getchar())
@@ -14,11 +14,11 @@ bool input(T &x) {
     for(;c>=48&&c<=57;c=getchar())
         x=x*10+c-48;
     x*=a;
-    return c!=10&&c!=13;
+    return;
 }
 
-#define MAXN 110
-#define MAXM 2610
+#define MAXN 1010
+#define MAXM 250510
 
 struct Edge {
     int u,v,cap,next;
@@ -36,11 +36,11 @@ void addedge(int u,int v,int cap) {
 }
 
 queue<int> q;
-int lev[MAXN],cur[MAXN];
-int n,m,src,decc,N;
+int cur[MAXN],lev[MAXN];
+int n,m,src,decc;
 
 bool bfs() {
-    for(int i=1;i<=N;i++)
+    for(int i=1;i<=decc;i++)
         lev[i]=-1;
     while(!q.empty()) q.pop();
     q.push(src),lev[src]=0;
@@ -49,7 +49,7 @@ bool bfs() {
         q.pop();
         for(int i=head[u],v;i;i=edge[i].next) {
             v=edge[i].v;
-            if(edge[i].cap>0&&lev[v]==-1) {
+            if(lev[v]==-1&&edge[i].cap>0) {
                 lev[v]=lev[u]+1;
                 q.push(v);
                 if(v==decc) return true;
@@ -62,15 +62,15 @@ bool bfs() {
 int dfs(int u,int flow) {
     if(u==decc) return flow;
     int x,used=0;
-    for(int i=head[u],v;i;i=edge[i].next) {
-        v=edge[i].v;
-        if(edge[i].cap>0&&lev[v]==lev[u]+1) {
-            x=dfs(v,min(edge[i].cap,flow-used));
+    for(int &i=cur[u];i;i=edge[i].next) {
+        int v=edge[i].v;
+        if(lev[v]==lev[u]+1&&edge[i].cap>0) {
+            x=dfs(v,min(flow-used,edge[i].cap));
             used+=x,edge[i].cap-=x,edge[i^1].cap+=x;
             if(flow==used) break;
         }
     }
-    if(x!=used) lev[u]=-1;
+    if(flow!=used) lev[u]=-1;
     return used;
 }
 
@@ -79,34 +79,50 @@ int dfs(int u,int flow) {
 int dinic() {
     int ans=0;
     while(bfs()) {
-        for(int i=1;i<=N;i++)
+        for(int i=1;i<=decc;i++)
             cur[i]=head[i];
         ans+=dfs(src,inf);
     }
     return ans;
 }
 
+int f[510],a[510];
+
 int main() {
-    input(m),input(n);
-    int ans=0;
-    src=n+m+1,decc=n+m+2,N=n+m+2;
-    for(int i=1,p,e;i<=m;i++) {
-        input(p),ans+=p;
-        addedge(src,i,p),addedge(i,src,0);
-        bool flag=true;
-        while(flag) {
-            flag=input(e);
-            addedge(i,e+m,inf),addedge(e+m,i,0);
-        }
-    }
-    for(int i=1,c;i<=n;i++)
-        input(c),addedge(i+m,decc,c),addedge(decc,i+m,0);
-    ans-=dinic();
-    for(int i=1;i<=m;i++)
-        if(lev[i]!=-1) printf("%d ",i);
-    puts("");
+    input(n);
     for(int i=1;i<=n;i++)
-        if(lev[i+m]!=-1) printf("%d ",i);
-    printf("\n%d\n",ans);
+        input(a[i]);
+    int ans=1;
+    for(int i=1;i<=n;i++) {
+        f[i]=1;
+        for(int j=1;j<i;j++)
+            if(a[i]>=a[j]) f[i]=max(f[i],f[j]+1);
+        ans=max(ans,f[i]);
+    }
+    printf("%d\n",ans);
+    src=n<<1|1,decc=n+1<<1;
+    for(int i=1;i<=n;i++) {
+        if(f[i]==1) {
+            addedge(src,i,1),
+            addedge(i,src,0);
+        }
+        if(f[i]==ans) {
+            addedge(i+n,decc,1),
+            addedge(decc,i+n,0);
+        }
+        addedge(i,i+n,1),addedge(i+n,i,0);
+        for(int j=1;j<i;j++)
+            if(a[i]>=a[j]&&f[i]==f[j]+1) {
+                addedge(j+n,i,1),
+                addedge(i,j+n,0);
+            }
+    }
+    int ans2=dinic();
+    printf("%d\n",ans2);
+    addedge(1,1+n,inf),addedge(n+1,1,0),
+    addedge(src,1,inf),addedge(1,src,0);
+    addedge(n,n<<1,inf),addedge(n<<1,n,0);
+    if(f[n]==ans) addedge(n<<1,decc,inf),addedge(decc,n<<1,0);
+    printf("%d\n",ans2+dinic());
     return 0;
 }
