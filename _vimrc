@@ -5,13 +5,13 @@ behave mswin
 set nu
 set tabstop=4
 set shiftwidth=4
-colorscheme molokai
+colorscheme solarized "molokai
 syntax on
 set guifont=Courier_new:h14:b:cDEFAULT
 set autoindent
 set smartindent
-set go-=T
 set go-=m
+set go-=T
 
 imap <c-]> {<cr>}<c-o>O<left><right>
 inoremap ( ()<LEFT>
@@ -21,10 +21,19 @@ inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 
 
+map <F9> :call Compile()<CR>
+func! Compile()
+exec "!g++ -g % -o %<"
+endfun
+
+map <F10> :call Run()<CR>
+func! Run()
+exec "! %<"
+endfun
+
 map <F11> :call CR()<CR>
 func! CR()
-exec "w"
-exec "!g++ -O2 -g  % -o %<"
+exec "!g++ -g  % -o %<"
 exec "! %<"
 endfun
 
@@ -84,4 +93,3 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
-
