@@ -5,7 +5,6 @@ behave mswin
 set nu
 set tabstop=4
 set shiftwidth=4
-colorscheme solarized "molokai
 syntax on
 set guifont=Courier_new:h14:b:cDEFAULT
 set autoindent
