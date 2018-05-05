@@ -22,7 +22,8 @@ inoremap ' ''<LEFT>
 
 map <F9> :call Compile()<CR>
 func! Compile()
-exec "!g++ -g % -o %<"
+exec "w"
+exec "!g++ -g % -o % -O2 -std=c++11<"
 endfun
 
 map <F10> :call Run()<CR>
@@ -32,7 +33,8 @@ endfun
 
 map <F11> :call CR()<CR>
 func! CR()
-exec "!g++ -g  % -o %<"
+exec "w"
+exec "!g++ -g  % -o % -O2 -std=c++11<"
 exec "! %<"
 endfun
 
